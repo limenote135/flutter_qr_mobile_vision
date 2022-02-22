@@ -46,29 +46,23 @@ class _MyAppState extends State<MyApp> {
           children: <Widget>[
             Expanded(
                 child: camState
-                    ? Center(
-                        child: SizedBox(
-                          width: 300.0,
-                          height: 600.0,
-                          child: QrCamera(
-                            onError: (context, error) => Text(
-                              error.toString(),
-                              style: TextStyle(color: Colors.red),
-                            ),
-                            qrCodeCallback: (code) {
-                              setState(() {
-                                qr = code;
-                              });
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                                border: Border.all(
-                                    color: Colors.orange,
-                                    width: 10.0,
-                                    style: BorderStyle.solid),
-                              ),
-                            ),
+                    ? QrCamera(
+                        onError: (context, error) => Text(
+                          error.toString(),
+                          style: TextStyle(color: Colors.red),
+                        ),
+                        qrCodeCallback: (code) {
+                          setState(() {
+                            qr = code;
+                          });
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            border: Border.all(
+                                color: Colors.orange,
+                                width: 10.0,
+                                style: BorderStyle.solid),
                           ),
                         ),
                       )
